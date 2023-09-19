@@ -2,11 +2,11 @@ pipeline{
   agent any
   stages{
     stage("sonar quality check"){
-      agent {
-        docker {
-          image 'openjdk:11'
-        }
-      }
+      // agent {
+      //   docker {
+      //     image 'openjdk:11'
+      //   }
+      // }
       steps{
         script {
           // need to tell jenkins where sonarqube is hosted for taht need to install plugins
