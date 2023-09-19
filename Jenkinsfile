@@ -35,6 +35,7 @@ pipeline{
         script{
           withCredentials([string(credentialsId: 'docker_pass', variable: 'docker_password')]) {
           sh '''
+            sudo chmod 666 /var/run/docker.sock
             docker build -t 54.157.162.169:8083/spring-app:${VERSION} .
             docker login -u admin -p $docker_password 54.157.162.169:8083
             docker push 54.157.162.169:8083/spring-app:${VERSION}
