@@ -5,11 +5,6 @@ pipeline{
   }
   stages{
     stage("sonar quality check"){
-      // agent {
-      //   docker {
-      //     image 'openjdk:17'
-      //   }
-      // }
       steps{
         script {
           // need to tell jenkins where sonarqube is hosted for taht need to install plugins
@@ -44,16 +39,6 @@ pipeline{
         }
       }
     }
-
-    // stage("Identifying miconfigurations using Datree in Helm Charts"){
-    //   steps{
-    //     script{
-    //       dir('kubernetes/') {
-    //         sh 'helm datree test myapp/'
-    //       }
-    //     }
-    //   }
-    // }
 
     stage("Pushing Helm Charts to Nexus"){
       steps{
