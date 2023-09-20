@@ -8,7 +8,7 @@ pipeline{
       steps{
         script {
           // need to tell jenkins where sonarqube is hosted for taht need to install plugins
-          withSonarQubeEnv(credentialsId: 'sonar-token') {
+          withSonarQubeEnv(credentialsId: '20sep-sonar-token') {
             sh 'chmod +x gradlew' // change the execute permission
             sh './gradlew sonarqube' // it help to push against sonarqube and validate according to sonar rules
           // remeber to install docer related plugins here
