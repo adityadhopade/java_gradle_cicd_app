@@ -1,3 +1,5 @@
+// def nexus_repository_registry = "34.234.193.66:8083"
+
 pipeline{
   agent any
   environment{
@@ -30,10 +32,10 @@ pipeline{
         script{
           withCredentials([string(credentialsId: 'docker_pass', variable: 'docker_password')]) {
           sh '''
-            docker build -t 54.157.162.169:8083/spring-app:${VERSION} .
-            docker login -u admin -p $docker_password 54.157.162.169:8083
-            docker push 54.157.162.169:8083/spring-app:${VERSION}
-            docker rmi 54.157.162.169:8083/spring-app:${VERSION}
+            docker build -t 34.234.193.66:8083:${VERSION} .
+            docker login -u admin -p $docker_password 34.234.193.66:8083
+            docker push 34.234.193.66:8083/spring-app:${VERSION}
+            docker rmi 34.234.193.66:8083/spring-app:${VERSION}
           '''
           }
         }
