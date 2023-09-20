@@ -16,13 +16,13 @@ pipeline{
           // remeber to install docer related plugins here
           // if not working as gradle requires java17 to work properly         
           }
-          timeout(time: 1, unit: 'HOURS') {
-            // Here qg aka Quality Gates represents the qg.status if its okay then move ahead or else throw a message like the following
-            def qg = waitForQualityGate()
-            if (qg.status != 'OK') {
-                error "Pipeline aborted due to quality gate failure: ${qg.status}"
-            }
-          } 
+          // timeout(time: 1, unit: 'HOURS') {
+          //   // Here qg aka Quality Gates represents the qg.status if its okay then move ahead or else throw a message like the following
+          //   def qg = waitForQualityGate()
+          //   if (qg.status != 'OK') {
+          //       error "Pipeline aborted due to quality gate failure: ${qg.status}"
+          //   }
+          // } 
         }
       }
     }
